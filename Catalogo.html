@@ -1,4 +1,152 @@
-<section id="Catalogo" class="Catalogo">
-    
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - MotorMarket</title>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">MotorMarket</a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
 
-</section>
+    <main>
+        <aside>
+        <h2>Filtros</h2>
+            <form>
+        <label for="tipo">Tipo</label>
+        <select id="tipo" name="tipo">
+            <option value="">Todos</option>
+            <option value="auto">Auto</option>
+            <option value="moto">Moto</option>
+            <option value="camioneta">Camioneta</option>
+        </select>
+
+        <label for="marca">Marca</label>
+        <select id="marca" name="marca">
+            <option value="">Todas</option>
+            <option>Ford</option>
+            <option>Volkswagen</option>
+            <option>Honda</option>
+            <option>Yamaha</option>
+            <option>Nissan</option>
+        </select>
+
+        <label for="modelo">Modelo</label>
+        <select id="modelo" name="modelo">
+            <option value="">Todos</option>
+        </select>
+
+        <label for="precio">Precio máximo</label>
+        <input type="number" id="precio" name="precio">
+
+        <button type="submit">Buscar</button>
+        <button type="reset">Limpiar</button>
+             </form>
+        </aside>
+        <section>
+            <h2>Catálogo de Vehículos</h2>
+            
+        
+            <article>
+                <img src="img/Ford-Fiesta-Kinetic.jpg" alt="Ford Fiesta Kinetic">
+                <h3>Ford Fiesta Kinetic</h3>
+                <p>Año: 2020 - Precio: $14.500.000</p>
+                <a href="detalle.html#auto-1">Ver detalle del vehículo</a>
+            </article>
+
+            <article>
+                <img src="img/Gol-Trend.jpg" alt="Volkswagen Gol Trend">
+                <h3>Volkswagen Gol Trend</h3>
+                <p>Año: 2021 - Precio: $12.800.000</p>
+                <a href="detalle.html#auto-2">Ver detalle del vehículo</a>
+            </article>
+
+            <article>
+                <img src="img/Tornado300.jpg" alt="Honda Tornado 300">
+                <h3>Honda Tornado 300</h3>
+                <p>Año: 2026 - Precio: $10.690.000</p>
+                <a href="detalle.html#auto-3">Ver detalle del vehículo</a>
+             </article>
+
+            <article>
+                <img src="img/Ranger.jpg" alt="Ford Ranger">
+                <h3>Ford Ranger</h3>
+                <p>Año: 2026 - Precio: $43.500.000</p>
+                <a href="detalle.html#auto-4">Ver detalle del vehículo</a>
+            </article>
+
+            <article>
+                <img src="img/far-f150-raptor-over-3.jpg" alt="Ford Raptor F-150">
+                <h3>Ford Raptor F-150</h3>
+                <p>Año: 2025 - Precio: $95.000.000</p>
+                <a href="detalle.html#auto-5">Ver detalle del vehículo</a>
+            </article>
+
+            <article>
+                <img src="img/Yamaha-Tenere-700.jpg" alt="Yamaha XTZ 250">
+                <h3>Yamaha XTZ 250</h3>
+                <p>Año: 2023 - Precio: $8.200.000</p>
+                <a href="detalle.html#auto-6">Ver detalle del vehículo</a>
+            </article>
+
+            <article>
+                <img src="img/nissan-frontier-2026-2082328.jpg" alt="Nissan Frontier">
+                <h3>Nissan Frontier </h3>
+                <p>Año: 2026 - Precio: $48.279.600</p>
+                <a href="detalle.html#auto-7">Ver detalle del vehículo</a>
+            </article>
+
+            <article>
+                <img src="img/volkswagen-polo-2026.webp" alt="Volkswagen Polo">
+                <h3>Volkswagen Polo</h3>
+                <p>Año: 2026 - Precio: $37.567.500</p>
+                <a href="detalle.html#auto-8">Ver detalle del vehículo</a>
+            </article>
+
+            <article>
+                <img src="img/Volkswagen-Virtus.jpg" alt="Volkswagen Virtus">
+                <h3>Volkswagen Virtus</h3>
+                <p>Año: 2020 - Precio: $19.500.000</p>
+                <a href="detalle.html#auto-9">Ver detalle del vehículo</a>
+            </article>
+
+            <article>
+                <img src="img/xr150-blanca-SIN-LOGO-800x800.webp" alt="Honda XR 150">
+                <h3>Honda XR 150</h3>
+                <p>Año: 2022 - Precio: $4.300.000</p>
+                <a href="detalle.html#auto-10">Ver detalle del vehículo</a>
+            </article>
+            
+            <article>
+                <img src="img/Yamaha-Tenere-700.jpg" alt="Yamaha Ténéré 700">
+                <h3>Yamaha Ténéré 700</h3>
+                <p>Año: 2026 - Precio: $24.500.000</p>
+                <a href="detalle.html#auto-11">Ver detalle del vehículo</a>
+            </article>
+
+            <article>
+                <img src="img/nissan-sentra-20-executive-cvt-fotos-alejandro-cortina-ricci-1086777.jpg" alt="Nissan Sentra(Advance CVT)">
+                <h3>Nissan Sentra (Advance CVT)</h3>
+                <p>Año: 2020 - Precio: $21.000.000</p>
+                <a href="detalle.html#auto-12">Ver detalle del vehículo</a>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+
+        <p>&copy; 2026 - Desarrollo Web UNLZ</p>
+        <p>Dirección: Av. Ejemplo 1234 · Tel: 11 1234-5678</p>
+        <p>Horarios: lunes a viernes de 9 a 18 hs</p>
+    </footer>
+</body>
+</html>
