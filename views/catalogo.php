@@ -23,7 +23,6 @@
             <h2>Catálogo de Vehículos</h2>
             <p>Acá se mostrarán los autos de forma dinámica (en la semana 3 usaremos arrays de PHP)[cite: 2].</p>
             
-            <!-- Ejemplo visual estático para la Semana 1 -->
             <article>
                 <h3>Ford Fiesta Kinetic</h3>
                 <p>Año: 2020 - Precio: $14.500</p>
