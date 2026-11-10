@@ -1,3 +1,23 @@
+main > h2 {
+    color: #0f1012;
+    font-size: 1.8rem;
+    border-bottom: 3px solid #00b987;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+main > p {
+    margin-bottom: 1.5rem;
+}
+
+main > p a {
+    color: #0f1012;
+    font-weight: bold;
+}
+
+main > p a:hover {
+    color: #007a5a;
+}
 
 article[id^="auto-"] {
     background: #ffffff;
@@ -9,14 +29,17 @@ article[id^="auto-"] {
 }
 
 article[id^="auto-"] h2 {
-    margin-top: 0;
-    border-bottom: 3px solid var(--color-acento);
-    padding-bottom: 0.5rem;
+    background: #0f1012;
+    color: #ffffff;
+    padding: 0.8rem 1rem;
+    border-bottom: 4px solid #00b987;
+    border-radius: 6px;
 }
 
 article[id^="auto-"] h3 {
     margin: 1.2rem 0 0.4rem;
     font-size: 1.1rem;
+    color: #0f1012;
 }
 
 article[id^="auto-"] figure {
@@ -36,10 +59,14 @@ article[id^="auto-"] ul {
     padding-left: 1.2rem;
 }
 
+article[id^="auto-"] p {
+    margin-bottom: 0.8rem;
+}
+
 article[id^="auto-"] > p:last-child a:first-child {
     display: inline-block;
-    background: var(--color-acento);
-    color: #111111;
+    background: #00b987;
+    color: #0f1012;
     padding: 0.6rem 1.2rem;
     border-radius: 6px;
     font-weight: bold;
@@ -47,8 +74,8 @@ article[id^="auto-"] > p:last-child a:first-child {
 }
 
 article[id^="auto-"] > p:last-child a:first-child:hover {
-    background: var(--color-acento-oscuro);
-    color: #ffffff;
+    background: #0f1012;
+    color: #00b987;
 }
 
 article[id^="auto-"] > p:last-child a:last-child {
