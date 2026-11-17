@@ -1,0 +1,205 @@
+  .catalogo-layout {
+    max-width: 1200px;
+    margin: 2.5rem auto;
+    padding: 0 1.2rem;
+}
+
+.catalogo-layout > h2 {
+    color: #0f1012;
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.catalogo-subtitulo {
+    color: #4b5563;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+.catalogo-grid-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* Columna de los filtro y que sean a la izquierda */
+.filtros-sidebar {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-top: 4px solid #0f1012;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.filtros-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.filtros-header h3 {
+    font-size: 1.1rem;
+    color: #0f1012;
+    margin: 0;
+}
+
+.btn-limpiar {
+    background: none;
+    border: none;
+    color: #6b7280;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.btn-limpiar:hover {
+    color: #00b987;
+}
+
+.filtro-grupo {
+    margin-bottom: 1.2rem;
+}
+
+.filtro-grupo label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.4rem;
+}
+
+.filtro-grupo select,
+.filtro-grupo input {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    background-color: #f9fafb;
+}
+
+.filtro-grupo select:focus,
+.filtro-grupo input:focus {
+    outline: 2px solid #00b987;
+    border-color: #0f1012;
+    background-color: #ffffff;
+}
+
+/* aca va la columna de autos*/
+.autos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* aca el diseño de los autos en horizontal */
+.vehiculo-card-horizontal {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 1.2rem;
+    display: grid;
+    grid-template-columns: 240px 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vehiculo-card-horizontal:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    border-color: #00b987;
+}
+
+.vehiculo-card-horizontal img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.vehiculo-info-principal span {
+    font-size: 0.8rem;
+    color: #00b987;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.vehiculo-info-principal h3 {
+    font-size: 1.25rem;
+    color: #0f1012;
+    margin: 0.2rem 0;
+}
+
+.vehiculo-version {
+    color: #4b5563;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+}
+
+.vehiculo-detalles-tecnicos {
+    display: flex;
+    gap: 1.2rem;
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+.vehiculo-detalles-tecnicos i {
+    color: #00b987;
+    margin-right: 4px;
+}
+
+/* aca esta el boton de detalle */
+.vehiculo-accion {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.vehiculo-precio-catalogo {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #0f1012;
+}
+
+.btn-ver-detalle {
+    background-color: #00b987;
+    color: #0f1012;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-ver-detalle:hover {
+    background-color: #0f1012;
+    color: #00b987;
+}
+
+/* Responsive para celulares y tablets */
+@media (max-width: 900px) {
+    .catalogo-grid-container {
+        grid-template-columns: 1fr;
+    }
+    .vehiculo-card-horizontal {
+        grid-template-columns: 1fr;
+    }
+    .vehiculo-card-horizontal img {
+        height: 200px;
+    }
+    .vehiculo-accion {
+        align-items: stretch;
+    }
+}

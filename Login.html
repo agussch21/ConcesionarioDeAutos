@@ -2,45 +2,130 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - MotorMarket</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Administrador - MotorMarket</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
+
     <header>
         <h1><a href="index.html">MotorMarket</a></h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="Catalogo.html">Catálogo</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="Login.html" class="active">Login</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section>
-            <h2>Acceso de Administrador</h2>
-            <form action="#" method="POST">
-                <div>
+    <main class="login-container">
+        <section class="login-card">
+            <div class="login-header">
+                <i class="fa-solid fa-user-shield login-icono"></i>
+                <h2>Acceso de Administrador</h2>
+                <p>Ingresá tus credenciales para gestionar el catálogo</p>
+            </div>
+
+            <form id="form-login" action="controllers/logincontroller.php" method="POST">
+                <div class="form-group">
                     <label for="usuario">Usuario:</label>
-                    <input type="text" id="usuario" name="usuario">
+                    <input type="text" id="usuario" name="usuario" placeholder="Ingresá tu usuario" required>
                 </div>
-                <div>
+
+                <div class="form-group">
                     <label for="password">Contraseña:</label>
-                    <input type="password" id="password" name="password">
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
                 </div>
-                <div>
-                    <button type="submit">Ingresar</button>
-                </div>
+
+                <!-- Espacio reservado para alertas de JS/PHP de tu compañero -->
+                <div id="login-mensaje" class="mensaje-oculto"></div>
+
+                <button type="submit" class="btn-login">Ingresar</button>
             </form>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 - Desarrollo Web UNLZ</p>
-        <p>Dirección: Av. Ejemplo 1234 · Tel: 11 1234-5678</p>
-        <p>Horarios: lunes a viernes de 9 a 18 hs</p>
+    <footer class="footer-oscuro">
+        <div class="footer-beneficios">
+            <div class="beneficio-item">
+                <i class="fa-solid fa-trophy"></i>
+                <div>
+                    <h4>Líder de Ventas</h4>
+                    <p>Argentina</p>
+                </div>
+            </div>
+            <div class="beneficio-item">
+                <i class="fa-solid fa-tag"></i>
+                <div>
+                    <h4>Ventas</h4>
+                    <p>En menos de 30 días.</p>
+                </div>
+            </div>
+            <div class="beneficio-item">
+                <i class="fa-solid fa-percent"></i>
+                <div>
+                    <h4>Ofertas</h4>
+                    <p>Precios Inigualables</p>
+                </div>
+            </div>
+            <div class="beneficio-item">
+                <i class="fa-solid fa-scale-balanced"></i>
+                <div>
+                    <h4>Compará precios</h4>
+                    <p>Decidí el auto ideal</p>
+                </div>
+            </div>
+        </div>
+
+        <hr class="footer-divisor">
+
+        <div class="footer-links-grid">
+            <div class="footer-col">
+                <h4>Sobre Nosotros</h4>
+                <ul>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Políticas de privacidad</a></li>
+                    <li><a href="index.html">MotorMarket</a></li>
+                    <li><a href="contacto.html">Sé vendedor</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Más vendidos</h4>
+                <ul>
+                    <li><a href="Catalogo.html">Chevrolet</a></li>
+                    <li><a href="Catalogo.html">Ford</a></li>
+                    <li><a href="Catalogo.html">Volkswagen</a></li>
+                    <li><a href="Catalogo.html">Fiat</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><a href="contacto.html">Ubicación</a></li>
+                    <li><a href="contacto.html">Contactá un vendedor</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="footer-divisor">
+
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                MOTOR<span>MARKET</span>
+            </div>
+            <div class="footer-copy">
+                <span>© 2026 MotorMarket. Todos los derechos reservados</span>
+                <a href="#" class="footer-social-circle" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
     </footer>
+
+    <script src="js/login.js"></script>
 </body>
 </html>
