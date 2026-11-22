@@ -288,3 +288,10 @@ header nav ul li:last-child a {
     border-color: #00b987;
     color: #0f1012;
 }
+/* Mensajes y campos con error (usados por Contacto.js y Login.js) */
+.mensaje-oculto { display: none; }
+#mensaje-respuesta { margin-top: 1rem; }
+.campo-invalido {
+    border-color: #dc2626 !important;
+    background-color: #fef2f2 !important;
+}

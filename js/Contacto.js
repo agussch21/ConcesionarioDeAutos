@@ -116,8 +116,8 @@ if (formContacto && campoNombre && campoEmail && campoMensaje && cajaRespuesta) 
         });
 
 
-        if (nombre.length < 3) {
-            errores.push({ campo: campoNombre, texto: "Ingresá tu nombre (mínimo 3 letras)." });
+        if (nombre.length < 3 || !/^[\p{L}\s'.-]+$/u.test(nombre)) {
+            errores.push({ campo: campoNombre, texto: "Ingresá tu nombre (solo letras, mínimo 3)." });
         }
 
         if (email === "") {
@@ -152,3 +152,4 @@ if (formContacto && campoNombre && campoEmail && campoMensaje && cajaRespuesta) 
 
     });
 }
+    

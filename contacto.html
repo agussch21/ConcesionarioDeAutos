@@ -74,21 +74,22 @@
                     <div>
                         <label for="vehiculo">Vehículo de interés</label>
                         <select id="vehiculo" name="vehiculo">
-                         <option value="">Seleccioná un modelo (opcional)</option>
-                         <option value="Ford Fiesta Kinetic">Ford Fiesta Kinetic</option>
-                         <option value="Volkswagen Gol Trend">Volkswagen Gol Trend</option>
-                         <option value="Honda Tornado 300">Honda Tornado 300</option>
-                         <option value="Ford Ranger">Ford Ranger</option>
-                         <option value="Ford Raptor F-150">Ford Raptor F-150</option>
-                         <option value="Yamaha XTZ 250">Yamaha XTZ 250</option>
-                         <option value="Nissan Frontier">Nissan Frontier</option>
-                         <option value="Volkswagen Polo">Volkswagen Polo</option>
-                         <option value="Volkswagen Virtus">Volkswagen Virtus</option>
-                         <option value="Honda XR 150">Honda XR 150</option>
-                         <option value="Yamaha Ténéré 700">Yamaha Ténéré 700</option>
-                         <option value="Nissan Sentra (Advance CVT)">Nissan Sentra (Advance CVT)</option>
-                         <option value="Otro">Otro / Consulta general</option>
-</select>
+                            <option value="">Seleccioná un modelo (opcional)</option>
+                            <option value="Ford Fiesta Kinetic">Ford Fiesta Kinetic</option>
+                            <option value="Volkswagen Gol Trend">Volkswagen Gol Trend</option>
+                            <option value="Honda Tornado 300">Honda Tornado 300</option>
+                            <option value="Ford Ranger">Ford Ranger</option>
+                            <option value="Ford Raptor F-150">Ford Raptor F-150</option>
+                            <option value="Yamaha XTZ 250">Yamaha XTZ 250</option>
+                            <option value="Nissan Frontier">Nissan Frontier</option>
+                            <option value="Volkswagen Polo">Volkswagen Polo</option>
+                            <option value="Volkswagen Virtus">Volkswagen Virtus</option>
+                            <option value="Honda XR 150">Honda XR 150</option>
+                            <option value="Yamaha Ténéré 700">Yamaha Ténéré 700</option>
+                            <option value="Nissan Sentra (Advance CVT)">Nissan Sentra (Advance CVT)</option>
+                            <option value="Otro">Otro / Consulta general</option>
+                        </select>
+                    </div>
 
                     <div>
                         <label for="mensaje">Mensaje</label>
@@ -96,6 +97,8 @@
                     </div>
 
                     <button type="submit">Enviar consulta</button>
+
+                    <div id="mensaje-respuesta" class="mensaje-oculto"></div>
                 </form>
             </div>
         </section>
@@ -148,10 +151,10 @@
             <div class="footer-col">
                 <h4>Más vendidos</h4>
                 <ul>
-                    <li><a href="catalogo.html">Chevrolet</a></li>
-                    <li><a href="catalogo.html">Ford</a></li>
-                    <li><a href="catalogo.html">Volkswagen</a></li>
-                    <li><a href="catalogo.html">Fiat</a></li>
+                    <li><a href="Catalogo.html">Chevrolet</a></li>
+                    <li><a href="Catalogo.html">Ford</a></li>
+                    <li><a href="Catalogo.html">Volkswagen</a></li>
+                    <li><a href="Catalogo.html">Fiat</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -178,120 +181,6 @@
         </div>
     </footer>
 
-<script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const formContacto =
-                document.getElementById("form-contacto") ||
-                document.querySelector("main form") ||
-                document.querySelector("form");
-
-            if (!formContacto) {
-                console.warn("No se encontró el formulario en contacto.html");
-                return;
-            }
-
-            const inputNombre =
-                document.getElementById("contacto-nombre") ||
-                formContacto.querySelector('input[name="nombre"], input[id*="nombre"]');
-
-            const inputEmail =
-                document.getElementById("contacto-email") ||
-                formContacto.querySelector('input[type="email"], input[name="email"], input[id*="email"]');
-
-            const inputTelefono =
-                document.getElementById("contacto-telefono") ||
-                formContacto.querySelector('input[type="tel"], input[name*="tel"], input[id*="tel"]');
-
-            const inputVehiculo =
-                document.getElementById("contacto-vehiculo") ||
-                formContacto.querySelector('input[name*="vehiculo"], input[id*="vehiculo"], select[name*="vehiculo"]');
-
-            const inputMensaje =
-                document.getElementById("contacto-mensaje") ||
-                formContacto.querySelector("textarea");
-
-            // metodo de seguridad para mostrar mensajes de error sin necesidad de ir al html
-            let mensajeBox = document.getElementById("mensaje-contacto");
-            if (!mensajeBox) {
-                mensajeBox = document.createElement("div");
-                mensajeBox.id = "mensaje-contacto";
-                mensajeBox.className = "mensaje-alerta";
-                mensajeBox.setAttribute("role", "alert");
-                formContacto.insertAdjacentElement("afterend", mensajeBox);
-            }
-
-            //esto es para que solo se puedan poner numeros en el telefono
-            if (inputTelefono) {
-                inputTelefono.setAttribute("inputmode", "numeric");
-                inputTelefono.addEventListener("input", function () {
-                    this.value = this.value.replace(/[^0-9+\s-]/g, "");
-                });
-            }
-
-            const params = new URLSearchParams(window.location.search);
-            const vehiculoParam = params.get("vehiculo");
-            if (vehiculoParam && inputVehiculo) {
-                inputVehiculo.value = vehiculoParam;
-            }
-
-            function mostrarAlertaContacto(texto, tipo) {
-                mensajeBox.textContent = texto;
-                mensajeBox.className = `mensaje-alerta visible ${tipo}`;
-            }
-
-           formContacto.addEventListener("submit", function (e) {
-                e.preventDefault();
-
-                const nombre = inputNombre ? inputNombre.value.trim() : "";
-                const email = inputEmail ? inputEmail.value.trim() : "";
-                const telefonoLimpio = inputTelefono ? inputTelefono.value.replace(/\D/g, "") : "";
-                const vehiculo = inputVehiculo ? inputVehiculo.value.trim() : "";
-                const mensaje = inputMensaje ? inputMensaje.value.trim() : "";
-                const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-                if (inputNombre && (nombre.length < 2 || !/^[\p{L}\s'.-]+$/u.test(nombre))) {
-                    mostrarAlertaContacto("Ingresá tu nombre y apellido (solo letras).", "error");
-                    inputNombre.focus();
-                    return;
-                }
-
-                if (inputEmail && (!email || !emailValido)) {
-                    mostrarAlertaContacto("Ingresá un correo electrónico válido.", "error");
-                    inputEmail.focus();
-                    return;
-                }
-
-                if (inputTelefono && inputTelefono.value.trim() !== "" && telefonoLimpio.length < 6) {
-                    mostrarAlertaContacto("Ingresá un número de teléfono válido (solo números).", "error");
-                    inputTelefono.focus();
-                    return;
-                }
-
-                if (inputMensaje && mensaje.length < 10) {
-                    mostrarAlertaContacto("Escribí un mensaje de al menos 10 caracteres.", "error");
-                    inputMensaje.focus();
-                    return;
-                }
-
-                const consultasPrevias = JSON.parse(localStorage.getItem("motormarket_consultas") || "[]");
-                consultasPrevias.push({
-                    nombre,
-                    email,
-                    telefono: telefonoLimpio,
-                    vehiculo,
-                    mensaje,
-                    fecha: new Date().toISOString()
-                });
-                localStorage.setItem("motormarket_consultas", JSON.stringify(consultasPrevias));
-
-                const detalleVehiculo = vehiculo ? ` sobre ${vehiculo}` : "";
-                mostrarAlertaContacto(
-                    `¡Gracias${nombre ? `, ${nombre}` : ""}! Recibimos tu consulta${detalleVehiculo} y te responderemos a la brevedad.`,
-                    "exito"
-                );
-                formContacto.reset();
-            });
-        });
-    </script>
+    <script src="js/Contacto.js"></script>
 </body>
 </html>

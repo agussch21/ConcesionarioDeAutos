@@ -46,9 +46,9 @@
     display: block;
     width: 100%;
     height: clamp(260px, 38vw, 480px);
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
-    background: #eef1f3;
+    background: #ffffff;
     border-radius: 14px;
 }
 .detalle-contenido { min-width: 0; }
