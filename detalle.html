@@ -526,29 +526,36 @@
 
     <!-- este es para q cuando apretes detalle de un auto solo aparezca ese -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const hash = window.location.hash; 
-            const items = document.querySelectorAll('.vehiculo-detalle-item');
-            
-            if (items.length > 0) {
-                if (hash) {
-                    let encontrado = false;
-                    items.forEach(item => {
-                        if ('#' + item.id === hash) {
-                            item.style.display = 'block';
-                            encontrado = true;
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                    if (!encontrado) {
-                        items[0].style.display = 'block';
+    document.addEventListener("DOMContentLoaded", function() {
+        const hash = window.location.hash;
+        const items = document.querySelectorAll('.vehiculo-detalle-item');
+
+        //cada boton "Consultar" lleva el nombre del auto a contacto
+        items.forEach(item => {
+            const nombre = item.querySelector('h2').textContent.trim();
+            const btn = item.querySelector('a[href="contacto.html"]');
+            if (btn) btn.href = 'contacto.html?vehiculo=' + encodeURIComponent(nombre);
+        });
+
+        if (items.length > 0) {
+            if (hash) {
+                let encontrado = false;
+                items.forEach(item => {
+                    if ('#' + item.id === hash) {
+                        item.style.display = 'block';
+                        encontrado = true;
+                    } else {
+                        item.style.display = 'none';
                     }
-                } else {
+                });
+                if (!encontrado) {
                     items[0].style.display = 'block';
                 }
+            } else {
+                items[0].style.display = 'block';
             }
-        });
-    </script>
+        }
+    });
+</script>
 </body>
 </html>

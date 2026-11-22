@@ -27,7 +27,6 @@
             <h2>Contacto</h2>
 
             <div class="contacto-grid">
-                <!-- Columna Izquierda: Tarjeta con tus datos (igual a tu referencia) -->
                 <div class="contacto-info-card">
                     <div class="info-bloque">
                         <h3>Ubicación</h3>
@@ -56,7 +55,6 @@
                     </div>
                 </div>
 
-                <!-- Columna Derecha: Formulario usando TUS estilos existentes -->
                 <form id="form-contacto" action="procesar_contacto.php" method="POST">
                     <div>
                         <label for="nombre">Nombre completo</label>
@@ -76,13 +74,21 @@
                     <div>
                         <label for="vehiculo">Vehículo de interés</label>
                         <select id="vehiculo" name="vehiculo">
-                            <option value="">Seleccioná un modelo (opcional)</option>
-                            <option value="Volkswagen Gol Trend">Volkswagen Gol Trend</option>
-                            <option value="Ford Ranger">Ford Ranger</option>
-                            <option value="Honda Tornado 300">Honda Tornado 300</option>
-                            <option value="Otro">Otro / Consulta general</option>
-                        </select>
-                    </div>
+                         <option value="">Seleccioná un modelo (opcional)</option>
+                         <option value="Ford Fiesta Kinetic">Ford Fiesta Kinetic</option>
+                         <option value="Volkswagen Gol Trend">Volkswagen Gol Trend</option>
+                         <option value="Honda Tornado 300">Honda Tornado 300</option>
+                         <option value="Ford Ranger">Ford Ranger</option>
+                         <option value="Ford Raptor F-150">Ford Raptor F-150</option>
+                         <option value="Yamaha XTZ 250">Yamaha XTZ 250</option>
+                         <option value="Nissan Frontier">Nissan Frontier</option>
+                         <option value="Volkswagen Polo">Volkswagen Polo</option>
+                         <option value="Volkswagen Virtus">Volkswagen Virtus</option>
+                         <option value="Honda XR 150">Honda XR 150</option>
+                         <option value="Yamaha Ténéré 700">Yamaha Ténéré 700</option>
+                         <option value="Nissan Sentra (Advance CVT)">Nissan Sentra (Advance CVT)</option>
+                         <option value="Otro">Otro / Consulta general</option>
+</select>
 
                     <div>
                         <label for="mensaje">Mensaje</label>
@@ -222,7 +228,6 @@
                 });
             }
 
-            // Si viene un vehículo en la URL (?vehiculo=...), completarlo
             const params = new URLSearchParams(window.location.search);
             const vehiculoParam = params.get("vehiculo");
             if (vehiculoParam && inputVehiculo) {
@@ -234,7 +239,7 @@
                 mensajeBox.className = `mensaje-alerta visible ${tipo}`;
             }
 
-            formContacto.addEventListener("submit", function (e) {
+           formContacto.addEventListener("submit", function (e) {
                 e.preventDefault();
 
                 const nombre = inputNombre ? inputNombre.value.trim() : "";
@@ -244,8 +249,8 @@
                 const mensaje = inputMensaje ? inputMensaje.value.trim() : "";
                 const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-                if (inputNombre && nombre.length < 2) {
-                    mostrarAlertaContacto("Ingresá tu nombre y apellido.", "error");
+                if (inputNombre && (nombre.length < 2 || !/^[\p{L}\s'.-]+$/u.test(nombre))) {
+                    mostrarAlertaContacto("Ingresá tu nombre y apellido (solo letras).", "error");
                     inputNombre.focus();
                     return;
                 }
@@ -288,4 +293,5 @@
             });
         });
     </script>
+</body>
 </html>
