@@ -23,30 +23,31 @@
     </header>
 
     <main class="login-container">
-        <section class="login-card">
-            <div class="login-header">
-                <i class="fa-solid fa-user-shield login-icono"></i>
-                <h2>Acceso de Administrador</h2>
-                <p>Ingresá tus credenciales para gestionar el catálogo</p>
-            </div>
+        <div class="login-card">
+            <h2>Iniciar sesión</h2>
+            <p>Accedé a tu cuenta de MotorMarket</p>
 
-            <form id="form-login" action="controllers/logincontroller.php" method="POST">
-                <div class="form-group">
-                    <label for="usuario">Usuario:</label>
-                    <input type="text" id="usuario" name="usuario" placeholder="Ingresá tu usuario" required>
+            <form id="form-login" novalidate>
+                <div class="campo-grupo">
+                    <label for="login-email">Correo electrónico</label>
+                    <input type="email" id="login-email" name="email" placeholder="ejemplo@correo.com" required>
                 </div>
 
-                <div class="form-group">
-                    <label for="password">Contraseña:</label>
-                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                <div class="campo-grupo">
+                    <label for="login-password">Contraseña</label>
+                    <input type="password" id="login-password" name="password" placeholder="Tu contraseña" required>
                 </div>
 
-                <!-- Espacio reservado para alertas de JS/PHP de tu compañero -->
-                <div id="login-mensaje" class="mensaje-oculto"></div>
-
-                <button type="submit" class="btn-login">Ingresar</button>
+                <button type="submit" class="btn-principal">Ingresar</button>
             </form>
-        </section>
+
+            <div id="mensaje-login" class="mensaje-alerta" role="alert"></div>
+
+            <div id="sesion-activa" class="sesion-activa-box">
+                <p>Sesión iniciada como: <span id="usuario-logueado-texto"></span></p>
+                <button type="button" id="btn-logout" class="btn-cerrar-sesion">Cerrar sesión</button>
+            </div>
+        </div>
     </main>
 
     <footer class="footer-oscuro">
@@ -126,6 +127,71 @@
         </div>
     </footer>
 
-    <script src="js/login.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const formLogin = document.getElementById("form-login");
+            const inputEmail = document.getElementById("login-email");
+            const inputPassword = document.getElementById("login-password");
+            const mensajeBox = document.getElementById("mensaje-login");
+            const sesionBox = document.getElementById("sesion-activa");
+            const usuarioTexto = document.getElementById("usuario-logueado-texto");
+            const btnLogout = document.getElementById("btn-logout");
+
+            function mostrarMensaje(texto, tipo) {
+                if (!mensajeBox) return;
+                mensajeBox.textContent = texto;
+                mensajeBox.className = `mensaje-alerta visible ${tipo}`;
+            }
+
+            function actualizarEstadoSesion() {
+                const usuarioGuardado = localStorage.getItem("motormarket_usuario");
+                if (usuarioGuardado && sesionBox && usuarioTexto) {
+                    usuarioTexto.textContent = usuarioGuardado;
+                    sesionBox.classList.add("visible");
+                    if (formLogin) formLogin.style.display = "none";
+                } else {
+                    if (sesionBox) sesionBox.classList.remove("visible");
+                    if (formLogin) formLogin.style.display = "block";
+                }
+            }
+
+            actualizarEstadoSesion();
+
+            if (formLogin) {
+                formLogin.addEventListener("submit", function (e) {
+                    e.preventDefault();
+
+                    const email = inputEmail ? inputEmail.value.trim() : "";
+                    const password = inputPassword ? inputPassword.value.trim() : "";
+                    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+                    if (!email || !emailValido) {
+                        mostrarMensaje("Ingresá un correo electrónico válido.", "error");
+                        if (inputEmail) inputEmail.focus();
+                        return;
+                    }
+
+                    if (password.length < 4) {
+                        mostrarMensaje("La contraseña debe tener al menos 4 caracteres.", "error");
+                        if (inputPassword) inputPassword.focus();
+                        return;
+                    }
+
+                    localStorage.setItem("motormarket_usuario", email);
+                    mostrarMensaje("Inicio de sesión correcto. ¡Bienvenido a MotorMarket!", "exito");
+                    formLogin.reset();
+                    actualizarEstadoSesion();
+                });
+            }
+
+            if (btnLogout) {
+                btnLogout.addEventListener("click", function () {
+                    localStorage.removeItem("motormarket_usuario");
+                    if (mensajeBox) mensajeBox.className = "mensaje-alerta";
+                    actualizarEstadoSesion();
+                });
+            }
+        });
+    </script>
 </body>
 </html>

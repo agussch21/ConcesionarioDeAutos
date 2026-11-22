@@ -227,3 +227,64 @@ header nav ul li:last-child a {
         grid-template-columns: 1fr;
     }
 }
+.mensaje-alerta {
+    padding: 0.85rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    display: none;
+    line-height: 1.4;
+}
+
+.mensaje-alerta.visible {
+    display: block;
+}
+
+.mensaje-alerta.error {
+    background-color: rgba(220, 38, 38, 0.12);
+    border: 1px solid #dc2626;
+    color: #991b1b;
+}
+
+.mensaje-alerta.exito {
+    background-color: rgba(0, 185, 135, 0.14);
+    border: 1px solid #00b987;
+    color: #065f46;
+}
+
+.sesion-activa-box {
+    background-color: #0f1012;
+    color: #ffffff;
+    border: 1px solid #00b987;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1.2rem;
+    display: none;
+}
+
+.sesion-activa-box.visible {
+    display: block;
+}
+
+.sesion-activa-box span {
+    color: #00b987;
+    font-weight: 700;
+}
+
+.btn-cerrar-sesion {
+    margin-top: 1rem;
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 0.55rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-cerrar-sesion:hover {
+    background-color: #00b987;
+    border-color: #00b987;
+    color: #0f1012;
+}
