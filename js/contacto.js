@@ -1,5 +1,3 @@
-const modoPrueba = true;
-
 const formulario = document.getElementById("form-contacto");
 const campoNombre = document.getElementById("nombre");
 const campoEmail = document.getElementById("email");
