@@ -18,11 +18,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $vehiculo = dato_post('vehiculo');
     $mensaje = dato_post('mensaje');
 
-    if (strlen($nombre) < 3) {
+        if (strlen($nombre) < 3) {
         $errores[] = 'Ingresá tu nombre (mínimo 3 letras).';
     } elseif (strlen($nombre) > 60) {
         $errores[] = 'El nombre es demasiado largo (máximo 60 caracteres).';
+    } elseif (!preg_match('/^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s\'\-]+$/u', $nombre)) {
+        $errores[] = 'El nombre solo puede tener letras, sin números ni símbolos.';
     }
+
 
     if ($email == '') {
         $errores[] = 'Ingresá tu correo electrónico.';
