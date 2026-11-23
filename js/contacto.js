@@ -8,29 +8,6 @@ const cajaMensaje = document.getElementById("mensaje-respuesta");
 
 formulario.noValidate = true;
 
-const vehiculos = [
-    "Ford Fiesta Kinetic",
-    "Volkswagen Gol Trend",
-    "Honda Tornado 300",
-    "Ford Ranger",
-    "Ford Raptor F-150",
-    "Yamaha XTZ 250",
-    "Nissan Frontier",
-    "Volkswagen Polo",
-    "Volkswagen Virtus",
-    "Honda XR 150",
-    "Yamaha Ténéré 700",
-    "Nissan Sentra (Advance CVT)"
-];
-
-const primeraOpcion = campoVehiculo.options[0].textContent;
-campoVehiculo.innerHTML = '<option value="">' + primeraOpcion + "</option>";
-
-for (let i = 0; i < vehiculos.length; i++) {
-    campoVehiculo.innerHTML += "<option>" + vehiculos[i] + "</option>";
-}
-campoVehiculo.innerHTML += "<option>Otro / Consulta general</option>";
-
 formulario.addEventListener("submit", function (evento) {
     const nombre = campoNombre.value.trim();
     const email = campoEmail.value.trim();
@@ -72,12 +49,5 @@ formulario.addEventListener("submit", function (evento) {
         cajaMensaje.innerHTML = errores.join("<br>");
         return;
     }
-
-
-    if (modoPrueba) {
-        evento.preventDefault();
-        cajaMensaje.className = "mensaje-exito";
-        cajaMensaje.textContent = "¡Gracias, " + nombre + "! Tu consulta fue enviada (modo prueba).";
-        formulario.reset();
-    }
+   
 });

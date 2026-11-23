@@ -24,9 +24,5 @@ formulario.addEventListener("submit", function (evento) {
         return;
     }
 
-    if (modoPrueba) {
-        evento.preventDefault();
-        cajaMensaje.className = "mensaje-exito";
-        cajaMensaje.textContent = "Datos completos. La verificación real se hace con PHP.";
-    }
+   
 });
