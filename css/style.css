@@ -288,6 +288,14 @@ header nav ul li:last-child a {
     border-color: #00b987;
     color: #0f1012;
 }
+.mensaje-exito {
+    display: block;
+    background-color: #d1fae5;
+    color: #065f46;
+    padding: 0.7rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
 /* Mensajes y campos con error (usados por Contacto.js y Login.js) */
 .mensaje-oculto { display: none; }
 #mensaje-respuesta { margin-top: 1rem; }
