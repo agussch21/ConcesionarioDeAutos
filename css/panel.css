@@ -1,0 +1,111 @@
+
+.panel-container {
+    max-width: 1100px;
+    margin: 2rem auto 4rem;
+    padding: 0 1.2rem;
+}
+
+.panel-container > h2 {
+    font-size: 2rem;
+    color: #0f1012;
+    border-bottom: 4px solid #00b987;
+    padding-bottom: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.panel-saludo {
+    color: #4a5568;
+    margin-bottom: 1.5rem;
+}
+
+/* Tarjetas con los números */
+.panel-resumen {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.resumen-item {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-top: 4px solid #00b987;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.resumen-item strong {
+    display: block;
+    font-size: 1.8rem;
+    color: #0f1012;
+}
+
+.resumen-item span {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.panel-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.panel-card h3 {
+    color: #0f1012;
+    margin-bottom: 1rem;
+}
+
+.panel-vacio {
+    color: #6b7280;
+}
+
+/* Tabla */
+.tabla-scroll {
+    overflow-x: auto;
+}
+
+.panel-card table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.panel-card th {
+    background: #0f1012;
+    color: #ffffff;
+    text-align: left;
+    padding: 0.7rem;
+}
+
+.panel-card td {
+    padding: 0.7rem;
+    border-bottom: 1px solid #eef0f2;
+    vertical-align: top;
+}
+
+.panel-salir {
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .panel-resumen {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.panel-salir a {
+    display: inline-block;
+    background: #00b987;
+    color: #0f1012;
+    padding: 0.7rem 1.4rem;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.panel-salir a:hover {
+    background: #0f1012;
+    color: #00b987;
+}
