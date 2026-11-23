@@ -1,5 +1,3 @@
-const modoPrueba = true;
-
 const formulario = document.getElementById("form-login");
 const campoUsuario = document.getElementById("usuario");
 const campoPassword = document.getElementById("password");
