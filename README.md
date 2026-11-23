@@ -1,60 +1,37 @@
-MotorMarket - Concesionario de autos
-Sitio web sobre un concesionario de autos, motos y camionetas
+# MotorMarket – Concesionario de autos
 
-Integrantes: Agustin y Thiago
-Repositorio: https://github.com/agussch21/ConcesionarioDeAutos.git
+Sitio web de un concesionario de autos, motos y camionetas, desarrollado como trabajo práctico de **Desarrollo Web** (UNLZ).
 
-1. Que es el proyecto
-MotorMarket muestra un catalogo de 12 vehiculos (autos, motos y camionetas) el cual permite filtrarlos, ver la ficha tecnica detallada de cada uno, enviar una consulta al concesionario, iniciar sesion y administrar informacion desde un panel privado. El sitio cuenta con las siguientes paginas principales:
+**Integrantes:** Agustin y Thiago
+**Repositorio:** https://github.com/agussch21/ConcesionarioDeAutos.git
 
-Pagina
+---
 
-Archivo
+## 1. Qué es el proyecto
 
-Que hace
+MotorMarket muestra un catálogo de 12 vehículos (autos, motos y camionetas) que se pueden filtrar, ver en una ficha técnica detallada y consultar al concesionario. Además tiene un login con sesión y un panel privado donde se ven las consultas recibidas.
 
-Inicio
+| Página | Archivo | Qué hace |
+|---|---|---|
+| Inicio | `index.php` | Presentación, vehículos destacados y saludo según la hora |
+| Catálogo | `catalogo.php` | Listado de los 12 vehículos con filtros dinámicos por tipo, marca, modelo y precio máximo |
+| Detalle | `detalle.php` | Ficha completa de un vehículo: datos técnicos, descripción y características |
+| Contacto | `contacto.php` | Formulario de consulta con validaciones, precarga del vehículo y registro de las consultas |
+| Login | `login.php` | Formulario de acceso con validaciones y manejo de sesión en PHP |
+| Panel | `panel.php` | Vista privada para usuarios verificados: resumen de vehículos y tabla de consultas |
+| Logout | `logout.php` | Cierre de sesión y redirección al login |
 
-index.php
+## 2. Tecnologías y diseño
 
-Presentacion, vehiculos destacados y aviso de local abierto o cerrado segun el horario
+- **PHP:** lógica del lado del servidor, páginas generadas dinámicamente, componentes reutilizables (`includes/`), datos en arrays (`datos/`) y sesiones (`$_SESSION`).
+- **HTML5:** estructura semántica, dividida en `header.php` y `footer.php`.
+- **CSS3:** una hoja de estilos por página más una común, con Grid y Flexbox, diseño adaptable a celulares y paleta oscura (`#0f1012`) con acentos verde esmeralda (`#00b987`).
+- **JavaScript (sin librerías):** un archivo por página para los filtros del catálogo, la vista de detalle, el saludo y las validaciones en el navegador.
+- **Git y GitHub:** control de versiones y trabajo colaborativo.
 
-Catalogo= catalogo.php
+## 3. Estructura del proyecto
 
-Listado en grilla de los 12 vehiculos con filtros dinamicos por tipo, marca, modelo y precio maximo
-
-Detalle= detalle.php
-
-Ficha completa de un vehiculo especifico con datos tecnicos, descripcion y caracteristicas
-
-Contacto= contacto.php
-
-Formulario de consulta con validaciones, precarga automatica del vehiculo y registro de consultas
-
-Login= login.php
-
-Formulario de acceso con validaciones y manejo de sesion en PHP
-
-Panel= panel.php
-
-Vista privada para usuarios verificados (gestion / visualizacion de datos del sistema)
-
-Logout= logout.php
-
-Cierre de sesion activo y redireccion
-
-2. Tecnologias y diseno
-PHP: logica del lado del servidor, renderizado dinamico de vistas, componentes reutilizables (includes/), manejo de datos (datos/ y models/) y sesiones ($_SESSION).
-
-HTML5: estructura semantica modularizada mediante header.php y footer.php.
-
-CSS3: arquitectura modular con hojas de estilo separadas por vista, uso de CSS Grid y Flexbox, diseno adaptable a dispositivos moviles y paleta oscura (#0f1012) con acentos en verde esmeralda (#00b987).
-
-JavaScript (sin librerias): archivos separados por pagina (js/) para filtros del catalogo, logica de detalle, aviso de horario y validaciones en el navegador.
-
-Git y GitHub: control de versiones, revision de cambios y trabajo colaborativo
-
-3. Estructura del proyecto
+```
 ConcesionarioDeAutos/
 ├── index.php
 ├── catalogo.php
@@ -65,145 +42,131 @@ ConcesionarioDeAutos/
 ├── panel.php
 ├── README.md
 ├── css/
-│   ├── style.css              (estilos globales: paleta de colores, header, footer y alertas)
-│   ├── home.css               (estilos de la pagina principal)
-│   ├── catalogo.css           (grilla y filtros del catalogo)
-│   ├── detalle.css            (tarjeta de ficha tecnica y acciones)
-│   ├── contacto.css           (formulario y mensajes de estado)
-│   └── login.css              (pantalla de acceso y sesion)
+│   ├── style.css        (estilos globales: colores, header, footer y alertas)
+│   ├── home.css         (página principal)
+│   ├── catalogo.css     (grilla y filtros del catálogo)
+│   ├── detalle.css      (ficha técnica y acciones)
+│   ├── contacto.css     (formulario y mensajes de estado)
+│   ├── login.css        (pantalla de acceso)
+│   └── panel.css        (panel de administración)
 ├── datos/
-│   ├── consultas.php          (almacenamiento / estructura de consultas)
-│   ├── usuarios.php           (datos de usuarios del sistema)
-│   └── vehiculos.php          (listado y ficha de los 12 vehiculos)
+│   ├── vehiculos.php    (listado y ficha de los 12 vehículos)
+│   ├── usuarios.php     (usuarios que pueden ingresar)
+│   └── consultas.php    (consultas recibidas por el formulario)
 ├── includes/
-│   ├── header.php             (barra de navegacion y cabecera comun)
-│   ├── footer.php             (pie de pagina comun)
-│   └── funciones.php          (funciones auxiliares compartidas en PHP)
+│   ├── header.php       (barra de navegación y cabecera común)
+│   ├── footer.php       (pie de página común)
+│   └── funciones.php    (funciones auxiliares compartidas)
 ├── js/
-│   ├── home.js                (logica de horario de atencion)
-│   ├── catalogo.js            (filtrado dinamico de vehiculos)
-│   ├── detalle.js             (interactividad de la vista detalle)
-│   ├── contacto.js            (validacion del formulario de contacto)
-│   └── login.js               (validacion del formulario de ingreso)
-├── models/                    (modelos de datos del proyecto)
-└── img/                       (imagenes de los 12 vehiculos)
+│   ├── home.js          (saludo según la hora)
+│   ├── catalogo.js      (filtrado dinámico de vehículos)
+│   ├── detalle.js       (muestra la ficha elegida)
+│   ├── contacto.js      (validación del formulario de contacto)
+│   └── login.js         (validación del formulario de ingreso)
+└── img/                 (imágenes de los 12 vehículos)
+```
 
-4. Como se dividio el trabajo
+## 4.4. Como se dividio el trabajo
 Modulo / Tarea
 
 Responsable
 
 Estructura HTML/CSS, sistema visual oscuro con verde esmeralda (css/) y diseno responsivo
-
 Agustin
 
 Vista de detalle (detalle.css), limpieza de rutas/enlaces , formularios base y footer detallado
-
 Agustin
 
 Arquitectura y logica en PHP (index.php, catalogo.php, detalle.php, contacto.php, login.php, logout.php, panel.php)
-
 Thiago
 
 Modularizacion de datos y backend (datos/, includes/funciones.php, models/)
-
 Thiago
 
 Logica interactiva y validaciones en JavaScript (js/home.js, js/catalogo.js, js/detalle.js, js/contacto.js, js/login.js)
-
 Thiago
 
 Arreglos de bugs y mejoras minimas
 Ambos
 
 Revision de consola, pruebas generales y unificacion final del repositorio
-
 Ambos
 
-Metodologia de trabajo: nos dividimos las responsabilidades entre diseno/maquetacion y logica/programacion, sincronizando los cambios mediante GitHub y revisando el codigo antes de cada commit para mantener un historial limpio.
+**Metodología de trabajo:** nos dividimos las responsabilidades entre diseño y maquetación por un lado, y lógica y programación por el otro. Sincronizamos los cambios mediante GitHub y revisamos el código antes de cada commit para mantener un historial limpio.
 
-5. Problemas que tuvimos y como los resolvimos
-#
+## 5. Cómo se comunican las partes
 
-Problema
-Causa
-Solucion
+1. El navegador pide una página, por ejemplo `catalogo.php`.
+2. PHP carga `datos/vehiculos.php` y recorre el array con `foreach`, generando una tarjeta por cada vehículo.
+3. Cada página incluye `header.php` y `footer.php` con `include`, y les pasa su título, su CSS y su JS en variables.
+4. El navegador recibe el HTML ya armado y ejecuta el JavaScript de la página (filtros y validaciones).
+5. Entre páginas, los datos viajan por la dirección: `detalle.php?id=3` o `contacto.php?vehiculo=Ford+Ranger`.
+6. Las consultas del formulario se guardan en `datos/consultas.php`, y el panel las lee para mostrarlas.
+7. El login guarda al usuario en `$_SESSION`, y `panel.php` lo consulta para dejar entrar o redirigir al login.
 
-1
-Los filtros del catalogo y el aviso de horario no funcionaban
+## 6. Problemas que tuvimos y cómo los resolvimos
 
-catalogo.js y home.js existian pero no estaban enlazados en la pagina
+Problema 
+Causa 
+Solución 
 
-Se agregaron las etiquetas <script src="js/..."> al final de cada vista
+| 1 | Los filtros del catálogo y el aviso de horario no funcionaban |
+ `catalogo.js` y `home.js` existían pero no estaban enlazados en la página 
+Se agregaron las etiquetas `<script src="js/...">` al final de cada vista 
 
-2
+| 2 Riesgo de errores 404 al subir a servidores Linux 
+| Algunos archivos y enlaces mezclaban mayúsculas y minúsculas (`Catalogo`, `Login`, `Home.js`) 
+| Se estandarizaron todos los nombres de archivos y rutas en minúscula (`catalogo.php`, `login.php`, `js/*.js`) 
 
-Riesgo de errores 404 al subir a servidores Linux
+| 3 |El selector de vehículos en contacto estaba incompleto| Solo mostraba 3 modelos
+Se cargaron los 12 vehículos desde `datos/vehiculos.php` más la opción "Otro" 
+| 4 | Al consultar desde el detalle, el formulario no sabía qué auto era 
+| El enlace apuntaba a contacto sin parámetros 
+| Se pasa el vehículo por la dirección y el formulario lo preselecciona 
 
-Algunos archivos y enlaces mezclaban mayusculas y minusculas (Catalogo, Login, Home.js)
+| 5 | Validaciones débiles en los formularios 
+| El campo nombre aceptaba números y el teléfono permitía letras 
+| Se agregaron validaciones en JavaScript y también en PHP (`contacto.php`), con mensajes claros 
+| 6 | Desincronización en la ficha de detalle 
+| El CSS nuevo se aplicó sobre una estructura vieja y las imágenes se veían desproporcionadas 
+| Se unificó el marcado de la ficha con las clases de `detalle.css` y se pasaron los estilos en línea a clases CSS 
 
-Se estandarizaron todos los nombres de archivos y rutas en minuscula (catalogo.php, login.php, js/*.js)
+| 7  El login y el formulario de contacto no llegaban a PHP desde el navegador 
+| Los scripts tenían un "modo prueba" activado que frenaba el envío 
+| Se quitó el modo prueba, así los datos se envían y PHP los procesa 
 
-3
+| 8 Las páginas `.php` no mostraban datos ni imágenes 
+| Se abrían con Live Server, que no ejecuta PHP 
+| Se pasó a un servidor local con PHP (Laragon) 
 
-El selector de vehiculos en contacto estaba incompleto
+**Aprendizajes**
 
-Solo mostraba 3 modelos
+- Hacer siempre `git pull` antes de empezar a editar.
+- Mantener sincronizados los cambios de PHP/HTML, CSS y JS cuando se modifica una misma vista.
+- Usar la consola del navegador (F12) y el servidor local PHP para detectar errores de rutas, sintaxis o lógica al instante.
+- Respetar estrictamente las mayusculas y minusculas en los nombres de archivos y carpetas.
+- Validar siempre también del lado del servidor: el JavaScript se puede saltear.
 
-Se cargaron los 12 vehiculos desde datos/vehiculos.php mas la opcion "Otro"
+## 7. Como ejecutarlo
 
-4
+1. Clonar o descargar este repositorio dentro de la carpeta pública de un servidor local con PHP (por ejemplo `htdocs` en XAMPP o `www` en Laragon).
+2. Iniciar el servicio de Apache desde el panel del servidor local.
+3. Abrir el navegador e ingresar a `http://localhost/ConcesionarioDeAutos/index.php` (ajustar el nombre de la carpeta según corresponda).
+4. Si se cambian estilos o scripts y no se reflejan, recargar limpiando la caché con **Ctrl + F5**.
 
-Al consultar desde el detalle, el formulario no sabia que auto era
+> Las páginas `.php` no funcionan abriéndolas con doble clic ni con Live Server: necesitan un servidor que ejecute PHP.
 
-El enlace apuntaba a contacto sin parametros
+**Usuarios de prueba para el login** (definidos en `datos/usuarios.php`):
 
-Se paso el parametro del vehiculo por URL y se precarga automaticamente
+| Usuario | Contraseña |
+|---|---|
+| `admin` | `admin123` |
+| `vendedor` | `ventas2026` |
 
-5
+## 8. Próximos pasos y mejoras futuras
 
-Validaciones debiles en los formularios
-
-El campo nombre aceptaba numeros y el telefono permitia letras
-
-Se agregaron validaciones tanto en JavaScript como en PHP (includes/funciones.php) con alertas visuales claras
-
-6
-
-Desincronizacion en la ficha de detalle
-
-El CSS nuevo se aplico sobre una estructura vieja y las imagenes se veian desproporcionadas
-
-Se unifico el marcado de la ficha con las clases de detalle.css y se pasaron los estilos en linea a clases CSS
-
-
-Aprendizajes 
-
-Hacer siempre git pull antes de empezar a editar 
-
-Mantener sincronizados los cambios de PHP/HTML, CSS y JS cuando se modifica una misma vista.
-
-Usar la consola del navegador (F12) y el servidor local PHP para detectar errores de rutas, sintaxis o logica al instante.
-
-Respetar estrictamente las minusculas o mayusculas para nombres de archivos y carpetas.
-
-6. Como ejecutarlo
-
-Clonar o descargar este repositorio dentro de la carpeta publica de un servidor local con PHP (por ejemplo htdocs en XAMPP o www en Laragon).
-
-Iniciar el servicio de Apache desde el panel del servidor local.
-
-Abrir el navegador e ingresar a http://localhost/ConcesionarioDeAutos/index.php (ajustar el nombre de la carpeta segun corresponda).
-
-Si se realizan cambios en los estilos o scripts y no se reflejan, recargar limpiando cache con Ctrl + F5.
-
-7. Proximos pasos y mejoras futuras
-
-Migrar el almacenamiento de datos/ (vehiculos.php, usuarios.php, consultas.php) hacia una base de datos relacional MySQL usando PDO.
-
-Ampliar las funcionalidades de panel.php para permitir altas, bajas y modificaciones (ABM) de vehiculos desde la interfaz.
-
-Implementar registro de nuevos usuarios y recuperacion de contrasena con password_hash y password_verify.
-
-Agregar mas vehiculos en el menu y hacer imagenes en carrusel (que se muevan solas)
-Agregar logo,ubicacion y instagram real
+- Migrar el almacenamiento de `datos/` (`vehiculos.php`, `usuarios.php`, `consultas.php`) a una base de datos MySQL usando PDO.
+- Ampliar `panel.php` para permitir altas, bajas y modificaciones (ABM) de vehículos desde la interfaz.
+- Guardar las contraseñas con `password_hash` y verificarlas con `password_verify`, e implementar registro de usuarios y recuperación de contraseña.
+- Agregar más vehículos al catalogo y un carrusel de imágenes automático.
+- Agregar el logo, la ubicación y el Instagram reales.
