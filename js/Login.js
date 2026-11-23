@@ -1,78 +1,34 @@
-const MODO_PRUEBA = true;
+const modoPrueba = true;
 
-const formLogin     = document.getElementById("form-login");
-const campoUsuario  = document.getElementById("usuario");
+const formulario = document.getElementById("form-login");
+const campoUsuario = document.getElementById("usuario");
 const campoPassword = document.getElementById("password");
-const cajaMensaje   = document.getElementById("login-mensaje");
+const cajaMensaje = document.getElementById("login-mensaje");
 
-if (formLogin && campoUsuario && campoPassword && cajaMensaje) {
+formulario.noValidate = true;
 
-    formLogin.noValidate = true;
+formulario.addEventListener("submit", function (evento) {
+    const usuario = campoUsuario.value.trim();   
+    const password = campoPassword.value;
+    const errores = [];
 
-    function mostrarMensaje(lineas, tipo) {
-        cajaMensaje.innerHTML = "";
-        lineas.forEach(function (texto) {
-            const linea = document.createElement("span");
-            linea.textContent = texto;
-            linea.style.display = "block";
-            cajaMensaje.appendChild(linea);
-        });
-        cajaMensaje.className = tipo === "exito" ? "mensaje-exito" : "mensaje-error";
-        cajaMensaje.setAttribute("role", tipo === "exito" ? "status" : "alert");
+    if (usuario === "") {
+        errores.push("Ingresá tu usuario.");
+    }
+    if (password === "") {
+        errores.push("Ingresá tu contraseña.");
     }
 
-    function ocultarMensaje() {
-        cajaMensaje.className = "mensaje-oculto";
-        cajaMensaje.textContent = "";
-        cajaMensaje.removeAttribute("role");
+    if (errores.length > 0) {
+        evento.preventDefault();
+        cajaMensaje.className = "mensaje-error";
+        cajaMensaje.innerHTML = errores.join("<br>");
+        return;
     }
 
-    function marcarInvalido(campo, invalido) {
-        campo.classList.toggle("campo-invalido", invalido);
-        if (invalido) {
-            campo.setAttribute("aria-invalid", "true");
-        } else {
-            campo.removeAttribute("aria-invalid");
-        }
+    if (modoPrueba) {
+        evento.preventDefault();
+        cajaMensaje.className = "mensaje-exito";
+        cajaMensaje.textContent = "Datos completos. La verificación real se hace con PHP.";
     }
-
-    [campoUsuario, campoPassword].forEach(function (campo) {
-        campo.addEventListener("input", function () {
-            marcarInvalido(campo, false);
-            ocultarMensaje();
-        });
-    });
-
-
-    formLogin.addEventListener("submit", function (evento) {
-        const usuario  = campoUsuario.value.trim();
-        const password = campoPassword.value;
-        const errores  = []; 
-
-        marcarInvalido(campoUsuario, false);
-        marcarInvalido(campoPassword, false);
-
-        if (usuario === "") {
-            errores.push({ campo: campoUsuario, texto: "Ingresá tu usuario." });
-        }
-
-        if (password === "") {
-            errores.push({ campo: campoPassword, texto: "Ingresá tu contraseña." });
-        }
-
-        if (errores.length > 0) {
-            evento.preventDefault();
-            errores.forEach(function (e) { marcarInvalido(e.campo, true); });
-            mostrarMensaje(errores.map(function (e) { return e.texto; }), "error");
-            errores[0].campo.focus();
-            return;
-        }
-
-        
-        if (MODO_PRUEBA) {
-            evento.preventDefault();
-            mostrarMensaje(["Datos completos. La verificación real se hace con PHP."], "exito");
-        }
-    
-    });
-}
+});
