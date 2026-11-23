@@ -1,17 +1,34 @@
+const modoPrueba = true;
 
-const hora = new Date().getHours(); 
-let saludo;
+const formulario = document.getElementById("form-login");
+const campoUsuario = document.getElementById("usuario");
+const campoPassword = document.getElementById("password");
+const cajaMensaje = document.getElementById("login-mensaje");
 
-if (hora < 12) {
-    saludo = "¡Buen día!";
-} else if (hora < 20) {
-    saludo = "¡Buenas tardes!";
-} else {
-    saludo = "¡Buenas noches!";
-}
+formulario.noValidate = true;
 
-const banner = document.querySelector(".hero-section");
-const parrafo = document.createElement("p");
-parrafo.textContent = saludo + " Encontrá tu próximo vehículo con nosotros.";
-parrafo.style.marginTop = "1rem";
-banner.appendChild(parrafo);
+formulario.addEventListener("submit", function (evento) {
+    const usuario = campoUsuario.value.trim();   
+    const password = campoPassword.value;
+    const errores = [];
+
+    if (usuario === "") {
+        errores.push("Ingresá tu usuario.");
+    }
+    if (password === "") {
+        errores.push("Ingresá tu contraseña.");
+    }
+
+    if (errores.length > 0) {
+        evento.preventDefault();
+        cajaMensaje.className = "mensaje-error";
+        cajaMensaje.innerHTML = errores.join("<br>");
+        return;
+    }
+
+    if (modoPrueba) {
+        evento.preventDefault();
+        cajaMensaje.className = "mensaje-exito";
+        cajaMensaje.textContent = "Datos completos. La verificación real se hace con PHP.";
+    }
+});
