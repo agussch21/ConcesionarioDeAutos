@@ -2,7 +2,6 @@ const formulario = document.getElementById("form-contacto");
 const campoNombre = document.getElementById("nombre");
 const campoEmail = document.getElementById("email");
 const campoTelefono = document.getElementById("telefono");
-const campoVehiculo = document.getElementById("vehiculo");
 const campoMensaje = document.getElementById("mensaje");
 const cajaMensaje = document.getElementById("mensaje-respuesta");
 
