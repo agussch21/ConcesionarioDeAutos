@@ -1,7 +1,4 @@
-<?php
-
-?>
-    <footer class="footer-oscuro">
+ <footer class="footer-oscuro">
         <div class="footer-beneficios">
             <div class="beneficio-item">
                 <i class="fa-solid fa-trophy"></i>
